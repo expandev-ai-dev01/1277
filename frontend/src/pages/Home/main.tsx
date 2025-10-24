@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/core/components/Button';
 
 /**
@@ -19,6 +20,8 @@ import { Button } from '@/core/components/Button';
  * - Primary: View welcome message and start quiz
  */
 export const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="max-w-4xl mx-auto">
       <div className="bg-white rounded-lg shadow-xl p-8 md:p-12">
@@ -35,7 +38,11 @@ export const HomePage = () => {
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start">
                 <span className="text-adventure-blue mr-2">✓</span>
-                <span>Responda perguntas sobre a série Hora de Aventura</span>
+                <span>Responda 15 perguntas sobre a série Hora de Aventura</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-adventure-blue mr-2">✓</span>
+                <span>Cada pergunta tem 30 segundos para ser respondida</span>
               </li>
               <li className="flex items-start">
                 <span className="text-adventure-blue mr-2">✓</span>
@@ -43,18 +50,23 @@ export const HomePage = () => {
               </li>
               <li className="flex items-start">
                 <span className="text-adventure-blue mr-2">✓</span>
-                <span>Veja sua pontuação final ao terminar</span>
+                <span>Cada resposta correta vale 10 pontos</span>
               </li>
               <li className="flex items-start">
                 <span className="text-adventure-blue mr-2">✓</span>
-                <span>Compartilhe seus resultados com amigos</span>
+                <span>Veja sua pontuação final e compartilhe com amigos</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="text-center">
-          <Button variant="primary" size="lg" className="text-xl px-12 py-4">
+          <Button
+            variant="primary"
+            size="lg"
+            className="text-xl px-12 py-4"
+            onClick={() => navigate('/quiz')}
+          >
             Começar Quiz
           </Button>
         </div>
